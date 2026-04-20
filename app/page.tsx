@@ -1,19 +1,26 @@
-import { Button } from "@/components/ui/button"
+"use client";
 
-export default function Page() {
+import { useState } from "react";
+import { Topbar } from "@/components/topbar";
+import { SecondaryNav } from "@/components/secondary-nav";
+import { CourseSidebar } from "@/components/course-sidebar";
+import { AnnouncementsPanel } from "@/components/announcements-panel";
+import { RightPanel } from "@/components/right-panel";
+import { Banner } from "@/components/banner";
+
+export default function DashboardPage() {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
+    <div className="min-h-screen bg-muted/30">
+      <Topbar />
+      <SecondaryNav />
+      <main className="container mx-auto max-w-7xl px-4 py-4">
+        <Banner />
+        <div className="grid grid-cols-[220px_1fr_200px] gap-4 mt-4">
+          <CourseSidebar />
+          <AnnouncementsPanel />
+          <RightPanel />
         </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
-        </div>
-      </div>
+      </main>
     </div>
-  )
+  );
 }
